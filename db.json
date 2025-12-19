@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "SIVADA",
+      "email": "sivada@gmail.com",
+      "password": "Sivada@123"
+    },
+    {
+      "id": "2",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "Admin@123"
+    }
+  ],
+  "books": [
+    {
+      "id": "4c0e",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "year": "2008",
+      "category": "Programming",
+      "description": "A handbook of best practices for writing clean and maintainable code.",
+      "status": "Available"
+    },
+    {
+      "id": "80a7",
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "year": "1988",
+      "category": "Fiction",
+      "description": "A philosophical story about following your dreams.",
+      "status": "Out of stock"
+    },
+    {
+      "id": "67fe",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "year": "2018",
+      "category": "Self Development",
+      "description": "Guide to building good habits.",
+      "status": "Available"
+    },
+    {
+      "id": "5eea",
+      "title": "Introduction to Algorithms",
+      "author": "Thomas H. Cormen",
+      "year": "2009",
+      "category": "Computer Science",
+      "description": "Comprehensive guide to modern algorithms.",
+      "status": "Available"
+    },
+    {
+      "id": "577e",
+      "title": "You Don’t Know JS",
+      "author": "Kyle Simpson",
+      "year": "2015",
+      "category": "JavaScript",
+      "description": "Deep dive into JavaScript core concepts.",
+      "status": "Out of stock"
+    },
+    {
+      "id": "0c28",
+      "title": "Harry Potter and the Philosopher’s Stone",
+      "author": "J.K. Rowling",
+      "year": "1997",
+      "category": "Story",
+      "description": "A young wizard discovers his magical heritage and begins his journey at Hogwarts.",
+      "status": "Available"
+    },
+    {
+      "id": "8341",
+      "title": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "year": "1894",
+      "category": "Story",
+      "description": "Stories of a boy raised by wolves in the Indian jungle.",
+      "status": "Available"
+    },
+    {
+      "id": "8745",
+      "title": "Panchatantra",
+      "author": "Vishnu Sharma",
+      "year": "1988",
+      "category": "Story",
+      "description": "Ancient Indian collection of moral stories and fables",
+      "status": "Out of stock"
+    },
+    {
+      "id": "0d8b",
+      "title": "Grandma’s Bag of Stories",
+      "author": "Sudha Murty",
+      "year": "2015",
+      "category": "Story",
+      "description": "Heartwarming stories filled with values and life lessons.",
+      "status": "Out of stock"
+    },
+    {
+      "id": "bf9e",
+      "title": "Wings of Fire",
+      "author": "A. P. J. Abdul Kalam",
+      "year": "1999",
+      "category": "Biography",
+      "description": "The autobiography of Dr. A. P. J. Abdul Kalam, detailing his journey from a small town to becoming India’s President.",
+      "status": "Available"
+    },
+    {
+      "id": "df4a",
+      "title": "React Explained",
+      "author": "Zac Gordon",
+      "year": "2019",
+      "category": "Programming",
+      "description": "A beginner-friendly guide to understanding React concepts and building real-world applications.",
+      "status": "Out of stock"
+    },
+    {
+      "id": "eca1",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "year": "1925",
+      "category": "Classic",
+      "description": "A classic American novel depicting the glamour, ambition, and moral decay of the Jazz Age.",
+      "status": "Available"
+    },
+    {
+      "id": "d004",
+      "title": "Introduction to Algorithms",
+      "author": "Thomas H. Cormen",
+      "year": "2009",
+      "category": "Programming",
+      "description": "A comprehensive textbook covering fundamental algorithms, data structures, and computational problem-solving techniques.",
+      "status": "Out of stock"
+    },
+    {
+      "id": "1247",
+      "title": "The Secret",
+      "author": "The Secret",
+      "year": "2006",
+      "category": "Self Help",
+      "description": "Explores the law of attraction and how positive thinking can influence success, health, and happiness.",
+      "status": "Available"
+    },
+    {
+      "id": "4402",
+      "title": "The Monk Who Sold His Ferrari",
+      "author": "Robin Sharma",
+      "year": "1997",
+      "category": "Self Help",
+      "description": "A motivational story about a successful lawyer who embarks on a spiritual journey to discover balance, happiness, and purpose.",
+      "status": "Available"
+    }
+  ],
+  "issued": [
+    {
+      "id": "ed9d",
+      "title": "clone",
+      "author": "Robert C. Martin",
+      "borrowed_by": "sivada",
+      "issued_date": "12-03-2025",
+      "return_date": "12-12-2026",
+      "status": "Returned"
+    },
+    {
+      "id": "7e3e",
+      "title": "panchatantra",
+      "author": "Vishnu Sharma",
+      "borrowed_by": "sneha",
+      "issued_date": "12-03-2025",
+      "return_date": "12-12-2026",
+      "status": "Returned"
+    }
+  ]
+}
