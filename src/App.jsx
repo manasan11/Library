@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 
 import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
 import Navbar from './components/Navbar';
 
 import BookList from './pages/books/BookList';
@@ -56,18 +57,18 @@ function App() {
           <Route
             path="/books/add"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <AddBook />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
 
           <Route
             path="/books/edit/:id"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <EditBook />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
 
@@ -92,18 +93,18 @@ function App() {
           <Route
             path="/issued/add"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <AddIssue />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
 
           <Route
             path="/issued/edit/:id"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <EditIssue />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
 

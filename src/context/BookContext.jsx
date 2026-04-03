@@ -7,8 +7,12 @@ const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
 
   const fetchBooks = async () => {
-    const res = await api.get("/books");
-    setBooks(res.data);
+    try {
+      const res = await api.get("/books");
+      setBooks(res.data);
+    } catch (err) {
+      console.error("Failed to fetch books:", err);
+    }
   };
 
   const addBook = async (book) => {
@@ -26,21 +30,12 @@ const BookProvider = ({ children }) => {
     fetchBooks();
   };
 
-  // useEffect(() => {
-  //   fetchBooks();
-  // }, []);
   useEffect(() => {
-  const fetchBooks = async () => {
-    const res = await api.get("/books");
-    setBooks(res.data);
-  };
-
-  fetchBooks();
-}, []);
-
+    fetchBooks();
+  }, []);
 
   return (
-    <BookContext.Provider value={{ books, addBook, updateBook, deleteBook }}>
+    <BookContext.Provider value={{ books, addBook, updateBook, deleteBook, fetchBooks }}>
       {children}
     </BookContext.Provider>
   );

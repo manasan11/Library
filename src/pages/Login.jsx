@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import "../pages/Pagestyle.css";
+import "./AuthStyles.css";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -53,32 +53,48 @@ export default function Login() {
   };
 
   return (
-    <div className="login container-fluid">
-      <h2>Login</h2>
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-card">
+          <div className="auth-header">
+            <h2>Welcome Back! 👋</h2>
+            <p>Login to access the library</p>
+          </div>
 
-      <form onSubmit={handleSubmit} style={{ maxWidth: 420 }}>
-        <div className="input-group">
-          <input name="email" placeholder="Enter email here" value={form.email} onChange={handleChange} />
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div className="form-group">
+              <label>Email Address</label>
+              <input 
+                name="email" 
+                type="email"
+                placeholder="Enter your email" 
+                value={form.email} 
+                onChange={handleChange} 
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                name="password"
+                type="password" 
+                placeholder="Enter your password"
+                value={form.password}
+                onChange={handleChange}
+              />
+            </div>
+
+            {error && <p className="error-msg">{error}</p>}
+
+            <button type="submit" className="btn-auth">Login</button>
+          </form>
+
+          <div className="auth-footer">
+            <p>Not an authorized staff member?</p>
+            <Link to="/register" className="btn-guest">Register as Guest</Link>
+          </div>
         </div>
-    <br /><br />
-        <div className="input-group">
-          <input
-            name="password"
-            type="password" placeholder="Enter password here"
-            value={form.password}
-            onChange={handleChange}
-          />
-        </div>
-
-        {error && <p className="error">{error}</p>}
-
-        <button className="btn" type="submit">Login</button>
-      </form>
-
-      <p style={{ marginTop: 12 }}>
-        Not an authorized staff member?{" "}
-        <Link to="/register" className="btn">Guest</Link>
-      </p>
+      </div>
     </div>
   );
 }

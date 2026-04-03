@@ -7,12 +7,16 @@ const IssueProvider = ({ children }) => {
   const [issued, setIssued] = useState([]);
 
   const fetchIssued = useCallback(async () => {
-    const res = await api.get("/issued");
-    setIssued(res.data);
+    try {
+      const res = await api.get("/issued");
+      setIssued(res.data);
+    } catch (err) {
+      console.error("Failed to fetch issued books:", err);
+    }
   }, []);
 
-  const addIssue = async (book) => {
-    await api.post("/issued", book);
+  const addIssue = async (issue) => {
+    await api.post("/issued", issue);
     fetchIssued();
   };
 
@@ -27,15 +31,11 @@ const IssueProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const fetchIssued = async () => {
-      const res = await api.get("/issued");
-      setIssued(res.data);
-    };
-
     fetchIssued();
-  },[]);
+  },[fetchIssued]);
+  
   return (
-    <IssueContext.Provider value={{ issued, addIssue, updateIssue, deleteIssue }}>
+    <IssueContext.Provider value={{ issued, addIssue, updateIssue, deleteIssue, fetchIssued }}>
       {children}
     </IssueContext.Provider>
   );

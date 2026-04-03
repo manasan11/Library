@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import { useNavigate } from "react-router-dom";
-import './Pagestyle.css'
-import Button from "../components/Button";
-const Register = () => {
-    emailjs.init("gEMccHReJFU8aD1PY");
+import React, { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import './AuthStyles.css';
 
+const Register = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: ""
     });
 
     const [errors, setErrors] = useState({});
+    const { register, login } = useContext(AuthContext);
     const navigate = useNavigate();
+
     const validate = () => {
         const errors = {};
         if (!formData.name.trim()) {
@@ -37,48 +37,69 @@ const Register = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validate();
 
         if (Object.keys(validationErrors).length === 0) {
-            emailjs
-                .send("service_5sm92zl", "template_yhmkdzr", {
-                    name: formData.name,
-                    email: formData.email,
-                    
-                })
-                .then(() => {
-                    alert("Registration successfull");
-                    navigate('/bookread');
-                })
-                .catch(() => {
-                    alert("Failed to submit");
-                });
+            try {
+                await register({ name: formData.name, email: formData.email, role: 'student', password: 'guest123' });
+                await login(formData.email, 'guest123');
+                navigate('/dashboard');
+            } catch (err) {
+                errors.submit = "Registration failed. Try again.";
+                setErrors({ ...errors, submit: "Registration failed. Try again." });
+            }
         } else {
             setErrors(validationErrors);
         }
     }; 
 
     return (
-        <div className="register">
-            <h2>Register here</h2>
-                  <h6>Not an authorized staff member?</h6>
-      <p>Enter as Guest to browse books and view the library.</p>
+        <div className="auth-page">
+            <div className="auth-container">
+                <div className="auth-card">
+                    <div className="auth-header">
+                        <h2>Register as Guest 👤</h2>
+                        <p>Browse books in read-only mode</p>
+                    </div>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} /><br /><br />
-                    {errors.name && <p>{errors.name}</p>}
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="form-group">
+                            <label>Full Name</label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="Enter your name"
+                                value={formData.name} 
+                                onChange={handleChange} 
+                            />
+                            {errors.name && <span className="field-error">{errors.name}</span>}
+                        </div>
 
-                    <label>Email:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} /><br /><br />
-                    {errors.email && <p>{errors.email}</p>}
+                        <div className="form-group">
+                            <label>Email Address</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="Enter your email"
+                                value={formData.email} 
+                                onChange={handleChange} 
+                            />
+                            {errors.email && <span className="field-error">{errors.email}</span>}
+                        </div>
 
-                    <button type='submit' className="btn">View as a guest</button><br />
+                        {errors.submit && <p className="error-msg">{errors.submit}</p>}
+
+                        <button type='submit' className="btn-auth">Register as Guest</button>
+                    </form>
+
+                    <div className="auth-footer">
+                        <p>Already have an account?</p>
+                        <Link to="/login" className="btn-guest">Login here</Link>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

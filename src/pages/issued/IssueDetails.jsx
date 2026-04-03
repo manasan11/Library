@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { api } from "../../utils/api";
-import { BookContext } from "../../context/BookContext";
 import { IssueContext } from '../../context/IssueContext';
+import { AuthContext } from "../../context/AuthContext";
 export default function IssueDetails() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [error, setError] = useState("");
   const { deleteIssue } = useContext(IssueContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,13 +38,17 @@ export default function IssueDetails() {
 
 
       <div style={{ marginTop: 12 }}>
-        <Link to={`/issued/edit/${book.id}`} className="btn">Edit</Link>
-        <button className="btn" style={{ marginLeft: 8 }} onClick={() => {
-          if (window.confirm("Delete this record?")) {
-            deleteIssue(book.id);
-            navigate("/issued");
-          }
-        }}>Delete</button>
+        {(user?.role === 'admin' || user?.email === 'manasa@gmail.com') && (
+          <>
+            <Link to={`/issued/edit/${book.id}`} className="btn">Edit</Link>
+            <button className="btn" style={{ marginLeft: 8 }} onClick={() => {
+              if (window.confirm("Delete this record?")) {
+                deleteIssue(book.id);
+                navigate("/issued");
+              }
+            }}>Delete</button>
+          </>
+        )}
         <Link to="/issued" className="btn" style={{ marginLeft: 8 }}>Back</Link>
       </div>
     </div>
