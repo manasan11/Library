@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { BookContext } from '../context/BookContext'
+import { AuthContext } from '../context/AuthContext'
 import './Home.css'
 
 const Home = () => {
   const { books } = useContext(BookContext);
+  const { user } = useContext(AuthContext);
 
   const featuredBooks = books.slice(0, 6);
 
@@ -12,11 +14,11 @@ const Home = () => {
     <div className="home-page">
       <section className="hero">
         <div className="hero-content">
-          <h1>📚 Library Management System</h1>
-          <p>Discover, Explore, and Manage Your Library Collection</p>
+          <h1>📚 Welcome, {user?.name || 'User'}!</h1>
+          <p>Library Management System - Explore and Manage Your Collection</p>
           <div className="hero-buttons">
-            <Link to="/login" className="btn-primary">Login</Link>
-            <Link to="/register" className="btn-secondary">Register as Guest</Link>
+            <Link to="/books" className="btn-primary">Browse Books</Link>
+            <Link to="/issued" className="btn-secondary">View Issued</Link>
           </div>
         </div>
       </section>
@@ -54,20 +56,7 @@ const Home = () => {
           ))}
         </div>
         <div className="section-cta">
-          <Link to="/register" className="btn-browse">Browse All Books →</Link>
-        </div>
-      </section>
-
-      <section className="guest-info">
-        <div className="guest-card">
-          <h3>👋 Guest Access</h3>
-          <p>Not an authorized staff member? Register as a guest to:</p>
-          <ul>
-            <li>✓ Browse the complete book collection</li>
-            <li>✓ View book details and availability</li>
-            <li>✓ Explore the library catalog</li>
-          </ul>
-          <Link to="/register" className="btn-register">Register as Guest</Link>
+          <Link to="/books" className="btn-browse">Browse All Books →</Link>
         </div>
       </section>
     </div>

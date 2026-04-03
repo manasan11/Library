@@ -9,13 +9,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">📚 Library</Link>
+        <Link to={user ? "/home" : "/login"}>📚 Library</Link>
       </div>
       <div className="navbar-links">
-        <Link to="/">Home</Link>
-  
         {user ? (
           <>
+            <Link to="/home">Home</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/books">Books</Link>
             <Link to="/issued">Issued</Link>
