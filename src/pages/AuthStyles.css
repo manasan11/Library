@@ -146,6 +146,69 @@
   display: block;
 }
 
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 20px 15px;
+  }
+
+  .auth-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .auth-header h2 {
+    font-size: 26px;
+  }
+
+  .auth-header p {
+    font-size: 14px;
+  }
+
+  .auth-form .form-group {
+    margin-bottom: 18px;
+  }
+
+  .auth-form input {
+    padding: 13px 15px;
+    font-size: 14px;
+  }
+
+  .btn-auth {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .auth-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .demo-credentials {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .success-message h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 25px 15px;
+  }
+
+  .auth-header h2 {
+    font-size: 22px;
+  }
+}
+
 .success-message {
   text-align: center;
   padding: 30px;

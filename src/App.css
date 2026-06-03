@@ -116,6 +116,40 @@ body {
   font-size: 14px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .container-fluid {
+    padding: 20px 15px;
+  }
+
+  .searchbar input {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .addbook {
+    padding: 20px;
+  }
+
+  .cardbuttons {
+    flex-direction: column;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
 .addbook {
   background: white;
   padding: 30px;

@@ -185,3 +185,62 @@
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
+@media (max-width: 768px) {
+  .guest-books-page {
+    padding: 20px 15px;
+  }
+
+  .guest-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .guest-header h2 {
+    font-size: 24px;
+  }
+
+  .guest-header p {
+    font-size: 14px;
+  }
+
+  .guest-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .search-box input {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .book-image {
+    height: 180px;
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guest-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-login,
+  .btn-register-guest {
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

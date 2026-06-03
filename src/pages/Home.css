@@ -270,6 +270,10 @@
     font-size: 32px;
   }
   
+  .hero p {
+    font-size: 16px;
+  }
+  
   .hero-buttons {
     flex-direction: column;
   }
@@ -279,6 +283,14 @@
     padding: 30px;
   }
   
+  .feature-card {
+    padding: 30px 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+  }
+
   .book-icon {
     font-size: 100px;
     margin-top: 30px;
@@ -286,5 +298,91 @@
   
   .featured-books {
     padding: 40px 20px;
+  }
+
+  .featured-books h2 {
+    font-size: 28px;
+  }
+
+  .books-showcase {
+    gap: 20px;
+  }
+
+  .showcase-book {
+    width: 130px;
+  }
+
+  .showcase-book img {
+    height: 150px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 14px 30px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .guest-info {
+    padding: 40px 20px;
+  }
+
+  .guest-card {
+    padding: 35px 25px;
+  }
+
+  .guest-card h3 {
+    font-size: 26px;
+  }
+
+  .guest-card p {
+    font-size: 15px;
+  }
+
+  .btn-browse {
+    padding: 14px 35px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .features {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .featured-books h2 {
+    font-size: 24px;
+  }
+
+  .books-showcase {
+    gap: 15px;
+  }
+
+  .showcase-book {
+    width: 110px;
+  }
+
+  .showcase-book img {
+    height: 130px;
+  }
+
+  .guest-card {
+    padding: 25px 20px;
+  }
+
+  .guest-card h3 {
+    font-size: 22px;
   }
 }
